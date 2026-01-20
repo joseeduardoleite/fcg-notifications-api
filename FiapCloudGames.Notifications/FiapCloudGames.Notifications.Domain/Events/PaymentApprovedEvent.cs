@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
-namespace FiapCloudGames.Notifications.Domain.Events;
+namespace FiapCloudGames.Contracts.Events;
 
 [ExcludeFromCodeCoverage]
 public class PaymentApprovedEvent

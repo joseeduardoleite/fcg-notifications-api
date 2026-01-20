@@ -1,9 +1,9 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
-namespace FiapCloudGames.Notifications.Domain.Events;
+namespace FiapCloudGames.Contracts.Events;
 
 [ExcludeFromCodeCoverage]
 public class UserCreatedEvent
 {
-    public Guid UsuarioId { get; set; }
+    public Guid UsuarioId { get; init; }
 }

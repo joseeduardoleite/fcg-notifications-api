@@ -1,4 +1,4 @@
-﻿using FiapCloudGames.Notifications.Domain.Events;
+﻿using FiapCloudGames.Contracts.Events;
 using FiapCloudGames.Notifications.Domain.Services.v1;
 using MassTransit;
 
