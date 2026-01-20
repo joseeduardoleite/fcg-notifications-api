@@ -1,11 +1,15 @@
-using FiapCloudGames.Notifications.Application.Services.v1;
-using FiapCloudGames.Notifications.Domain.Services.v1;
+using FiapCloudGames.Notifications.Application;
+using FiapCloudGames.Notifications.Infrastructure;
 using FiapCloudGames.Notifications.Infrastructure.Messaging;
 using MassTransit;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddApplicationModule();
+builder.Services.AddInfraModule(builder.Configuration);
+
+builder.Services.AddAuthorization();
+
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
@@ -38,6 +42,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 
