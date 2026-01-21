@@ -5,9 +5,9 @@ namespace FiapCloudGames.Notifications.Application.Services.v1;
 
 public sealed class EmailService(ILogger<EmailService> logger) : IEmailService
 {
-    public Task EnviarEmailBoasVindasAsync(Guid usuarioId)
+    public Task EnviarEmailBoasVindasAsync(Guid usuarioId, string nomeUsuario)
     {
-        logger.LogInformation("Email de boas-vindas enviado para {UsuarioId}", usuarioId);
+        logger.LogInformation("Email de boas-vindas enviado para {NomeUsuario} de id:{UsuarioId}", usuarioId, usuarioId);
         return Task.CompletedTask;
     }
 

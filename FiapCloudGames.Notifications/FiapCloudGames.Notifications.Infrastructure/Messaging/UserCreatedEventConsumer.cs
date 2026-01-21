@@ -8,6 +8,6 @@ public class UserCreatedEventConsumer(IEmailService emailService): IConsumer<Use
 {
     public async Task Consume(ConsumeContext<UserCreatedEvent> context)
     {
-        await emailService.EnviarEmailBoasVindasAsync(context.Message.UsuarioId);
+        await emailService.EnviarEmailBoasVindasAsync(context.Message.UsuarioId, context.Message.Nome!);
     }
 }

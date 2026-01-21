@@ -39,7 +39,20 @@ builder.Services.AddMassTransit(x =>
             );
         });
 
-        cfg.ConfigureEndpoints(context);
+        cfg.ReceiveEndpoint("notifications-usercreated-queue", e =>
+        {
+            e.ConfigureConsumer<UserCreatedEventConsumer>(context);
+        });
+
+        cfg.ReceiveEndpoint("notifications-payment-approved-queue", e =>
+        {
+            e.ConfigureConsumer<PaymentApprovedEventConsumer>(context);
+        });
+
+        cfg.ReceiveEndpoint("notifications-payment-rejected-queue", e =>
+        {
+            e.ConfigureConsumer<PaymentRejectedEventConsumer>(context);
+        });
     });
 });
 
